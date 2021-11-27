@@ -86,12 +86,20 @@ const grayScale = (pathIn, pathOut) => {
         for (var y = 0; y < this.height; y++) {
           for (var x = 0; x < this.width; x++) {
             var idx = (this.width * y + x) << 2;
-     
+            
+            var i = (y * 4) * this.width + x * 4;
+            var avg = (this.data[i] + this.data[i + 1] + this.data[i + 2]) / 3;
             // invert color
-            this.data[idx] = 255 - this.data[idx];
-            this.data[idx + 1] = 255 - this.data[idx + 1];
-            this.data[idx + 2] = 255 - this.data[idx + 2];
-     
+            this.data[idx] = avg;
+            this.data[idx + 1] = avg;
+            this.data[idx + 2] = avg;
+
+            // this.data[idx] = (0.299*(255, 0, 0) + 0.7152*(0, 128, 0) + 0.0722*(0, 0, 255)) /3 - this.data[idx];
+            // this.data[idx + 1] = (0.299*(255, 0, 0) + 0.7152*(0, 128, 0) + 0.0722*(0, 0, 255)) /3 - this.data[idx + 1];
+            // this.data[idx + 2] = (0.299*(255, 0, 0) + 0.7152*(0, 128, 0) + 0.0722*(0, 0, 255)) /3 - this.data[idx + 2];
+            
+
+            this.data[idx] = 
             // and reduce opacity
             this.data[idx + 3] = this.data[idx + 3] >> 1;
           }
