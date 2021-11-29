@@ -94,12 +94,7 @@ const grayScale = (pathIn, pathOut) => {
             this.data[idx + 1] = avg;
             this.data[idx + 2] = avg;
 
-            // this.data[idx] = (0.299*(255, 0, 0) + 0.7152*(0, 128, 0) + 0.0722*(0, 0, 255)) /3 - this.data[idx];
-            // this.data[idx + 1] = (0.299*(255, 0, 0) + 0.7152*(0, 128, 0) + 0.0722*(0, 0, 255)) /3 - this.data[idx + 1];
-            // this.data[idx + 2] = (0.299*(255, 0, 0) + 0.7152*(0, 128, 0) + 0.0722*(0, 0, 255)) /3 - this.data[idx + 2];
             
-
-            this.data[idx] = 
             // and reduce opacity
             this.data[idx + 3] = this.data[idx + 3] >> 1;
           }
